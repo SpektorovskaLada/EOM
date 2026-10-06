@@ -1,81 +1,80 @@
-# 🤓 Еволюційні методи оптимізації  
+# 🤓 Evolutionary Optimization Methods  
 
-🧪 Лабораторні роботи з дисципліни **«Еволюційні методи оптимізації»**  
+🧪 Laboratory works for the **"Evolutionary Optimization Methods"** course.  
 
-## 📦 Структура репозиторію
-- [Lab1/ 🧬 Генетичний алгоритм](./Lab1)  
-  - [Lab-1EOM.ipynb](./Lab1/Lab-1EOM.ipynb) – ноутбук з реалізацією  
-  - [EOM_Lab1.pdf](./Lab1/EOM_Lab1.pdf) – звіт  
+## 📦 Repository Structure
+- [Lab1/ 🧬 Genetic Algorithm](./Lab1)  
+  - [Lab-1EOM.ipynb](./Lab1/Lab-1EOM.ipynb) – implementation notebook  
+  - [EOM_Lab1.pdf](./Lab1/EOM_Lab1.pdf) – report  
 
-- [Lab2/ ⚖️ Багатокритеріальна оптимізація](./Lab2)  
-  - [Lab-2EOM.ipynb](./Lab2/Lab-2EOM.ipynb) – ноутбук з реалізацією  
-  - [EOM_Lab2.pdf](./Lab2/EOM_Lab2.pdf) – звіт  
+- [Lab2/ ⚖️ Multi-Objective Optimization](./Lab2)  
+  - [Lab-2EOM.ipynb](./Lab2/Lab-2EOM.ipynb) – implementation notebook  
+  - [EOM_Lab2.pdf](./Lab2/EOM_Lab2.pdf) – report  
 
-- [Lab3/ 🌀 Адаптивний спіральний пошук](./Lab3)  
-  - [Lab-3EOM.ipynb](./Lab3/Lab-3EOM.ipynb) – ноутбук з реалізацією  
-  - [EOM_Lab3.pdf](./Lab3/EOM_Lab3.pdf) – звіт  
+- [Lab3/ 🌀 Adaptive Spiral Search](./Lab3)  
+  - [Lab-3EOM.ipynb](./Lab3/Lab-3EOM.ipynb) – implementation notebook  
+  - [EOM_Lab3.pdf](./Lab3/EOM_Lab3.pdf) – report  
 
-- [README.md](./README.md) – опис проєкту
+- [README.md](./README.md) – project description
 
-## 📌 Лабораторні роботи
+## 📌 Laboratory Works
 
-### Лабораторна робота №1️⃣
-**Тема:** Дослідження генетичного алгоритму оптимізації багатоекстремальних функцій у дійсному просторі  
+### Laboratory Work №1️⃣
+**Topic:** Investigation of the Genetic Algorithm for Optimizing Multi-Extremal Functions in Real-Valued Space  
 
-- Реалізація **генетичного алгоритму** з варіацією:
-  - методів відбору (ранговий, турнірний, випадковий);
-  - параметрів відбору/кросоверу/мутації.
-- Досліджувані функції:
+- Implementation of a **genetic algorithm** with variations in:
+  - selection methods (rank-based, tournament, random);
+  - selection, crossover, and mutation parameters.
+- Benchmark functions analyzed:
   - **Schwefel**
   - **Drop-Wave**
-- Критерії ефективності: **стабільність, точність, кількість викликів функції**.   
-Результати показали, що турнірний відбір схильний до передчасної збіжності, тоді як ранговий та випадковий забезпечують кращу точність і стабільність.  
+- Performance criteria: **stability, accuracy, and number of function evaluations**.  
+The results demonstrated that tournament selection is prone to premature convergence, whereas rank-based and random selection methods provide superior accuracy and stability.  
 
 ---
-### Лабораторна робота №2️⃣  
-**Тема:** Багатокритеріальна оптимізація генетичним алгоритмом (Парето-домінування)  
+### Laboratory Work №2️⃣  
+**Topic:** Multi-Objective Optimization Using Genetic Algorithm (Pareto Dominance)  
 
-- **Цільові функції:**
+- **Objective functions:**
   - f₁(x, y) = √((x − 1)² + (y − 7)⁴)  
   - f₂(x, y) = (x + y − 2)² + x  
 
-- **Область пошуку:** [-10, 10] × [-10, 10]  
-- **Популяція:** 200  
-- **Кількість поколінь:** 40  
-- **Еліта:** 20%  
-- **Кросовер:** рівномірний  
-- **Мутація:** гаусівська  
+- **Search space:** [-10, 10] × [-10, 10]  
+- **Population size:** 200  
+- **Number of generations:** 40  
+- **Elitism:** 20%  
+- **Crossover:** uniform  
+- **Mutation:** Gaussian  
 
-- **Досліджено чотири набори коефіцієнтів:**
+- **Four parameter configurations were evaluated:**
 
-| Набір | Відбір | Кросовер | Мутація | Висновок |
-|-------|--------|----------|---------|----------|
-| No1   | 20%    | 70%      | 10%     | Найкращий баланс, плавний фронт |
-| No2   | 10%    | 80%      | 10%     | Менше різноманіття, ризик збіжності |
-| No3   | 30%    | 50%      | 20%     | Ширше охоплення фронту |
-| No4   | 10%    | 30%      | 60%     | Щільний фронт попри високу мутацію |
+| Config | Selection | Crossover | Mutation | Conclusion |
+|--------|-----------|-----------|----------|------------|
+| No. 1  | 20%       | 70%       | 10%      | Best balance, smooth Pareto front |
+| No. 2  | 10%       | 80%       | 10%      | Reduced diversity, risk of convergence |
+| No. 3  | 30%       | 50%       | 20%      | Broader coverage of the front |
+| No. 4  | 10%       | 30%       | 60%      | Dense front despite high mutation rate |
 
-**Висновок:** класичний набір (20/70/10) дає стабільний фронт Парето, а збільшена мутація (No3/No4) — ширше охоплення простору рішень.  
+**Conclusion:** The baseline configuration (20/70/10) yields a stable Pareto front, while an increased mutation rate (No. 3/No. 4) provides a broader coverage of the solution space.  
 
 ---
-### Лабораторна робота №3️⃣ 
-**Тема:** Дослідження алгоритму адаптивного спірального пошуку для оптимізації багатоекстремальних функцій  
+### Laboratory Work №3️⃣ 
+**Topic:** Investigation of the Adaptive Spiral Search Algorithm for Multi-Extremal Function Optimization  
 
-- Реалізація **адаптивного спірального пошуку** з різними параметрами:
-  - кут обертання θ (π/6, π/3, π/4);
-  - межі адаптації (rl, ru);
-  - параметр чутливості c1.
-- Досліджувані функції:
+- Implementation of **adaptive spiral search** with varying hyper-parameters:
+  - rotation angle θ (π/6, π/3, π/4);
+  - adaptation bounds (rl, ru);
+  - sensitivity parameter c1.
+- Benchmark functions analyzed:
   - **Schwefel**
   - **Drop-Wave**
-- Критерії ефективності: **середня відстань до глобального мінімуму, стабільність, кількість підрахунків функції**.  
-Результати показали високу ефективність для Drop-Wave, але значну схильність до передчасної збіжності для функції Schwefel.
+- Performance criteria: **mean distance to the global minimum, stability, and number of function evaluations**.  
+The results showed high efficiency for the Drop-Wave function but a strong tendency toward premature convergence for the Schwefel function.
 
-## 📖 Використані бібліотеки
+## 📖 Libraries Used
 - numpy
 - pandas
 - matplotlib
 - random
 - copy
-- openpyxl (для експорту в Excel)
-
+- openpyxl (for Excel export)
